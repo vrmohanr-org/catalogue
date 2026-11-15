@@ -1,0 +1,22 @@
+name: feature workflow
+on:
+  push:
+    branches: ['**']
+
+jobs:
+  feature-workflow:
+    if: github.ref_name != 'main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: commit status
+        uses: vrmohanr/workflows/.github/actions/commit-status@main
+        with:
+          project: 'roboshop'
+          component: 'catalogue'
+
+  main-workflow:
+    if: github.ref_name == 'main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: main workflow
+        run: echo "this runs when commit comes to main branch"
