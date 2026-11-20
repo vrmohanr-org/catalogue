@@ -4,7 +4,7 @@ kind: Deployment
 metadata:
   name: catalogue
   namespace: {{ .Values.namespace }}
-  # labels related to deployment resource
+  # labels related to deployment resource -Ram test
   labels:
     project: roboshop
     tier: backend

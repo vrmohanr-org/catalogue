@@ -1,7 +1,7 @@
 name: feature workflow
 on:
   push:
-  workflow_dispatch:  #Ram
+  workflow_dispatch:  # Reddy
 
 jobs:
   feature-workflow:
@@ -10,6 +10,11 @@ jobs:
     with:
       project: 'roboshop'
       component: 'catalogue'
+    permissions:
+      contents: write
+      pull-requests: write
+      statuses: write
+    secrets: inherit
 
   main-workflow:
     if: github.ref_name == 'main'
